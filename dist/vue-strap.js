@@ -6787,28 +6787,30 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.$nextTick(function () {
 	        var popover = _this2.$refs.popover;
 	        var trigger = _this2.$refs.trigger.children[0];
-	        switch (_this2.placement) {
-	          case 'top':
-	            _this2.left = trigger.offsetLeft - popover.offsetWidth / 2 + trigger.offsetWidth / 2;
-	            _this2.top = trigger.offsetTop - popover.offsetHeight;
-	            break;
-	          case 'left':
-	            _this2.left = trigger.offsetLeft - popover.offsetWidth;
-	            _this2.top = trigger.offsetTop + trigger.offsetHeight / 2 - popover.offsetHeight / 2;
-	            break;
-	          case 'right':
-	            _this2.left = trigger.offsetLeft + trigger.offsetWidth;
-	            _this2.top = trigger.offsetTop + trigger.offsetHeight / 2 - popover.offsetHeight / 2;
-	            break;
-	          case 'bottom':
-	            _this2.left = trigger.offsetLeft - popover.offsetWidth / 2 + trigger.offsetWidth / 2;
-	            _this2.top = trigger.offsetTop + trigger.offsetHeight;
-	            break;
-	          default:
-	            console.warn('Wrong placement prop');
+	        if (trigger && popover) {
+	          switch (_this2.placement) {
+	            case 'top':
+	              _this2.left = trigger.offsetLeft - popover.offsetWidth / 2 + trigger.offsetWidth / 2;
+	              _this2.top = trigger.offsetTop - popover.offsetHeight;
+	              break;
+	            case 'left':
+	              _this2.left = trigger.offsetLeft - popover.offsetWidth;
+	              _this2.top = trigger.offsetTop + trigger.offsetHeight / 2 - popover.offsetHeight / 2;
+	              break;
+	            case 'right':
+	              _this2.left = trigger.offsetLeft + trigger.offsetWidth;
+	              _this2.top = trigger.offsetTop + trigger.offsetHeight / 2 - popover.offsetHeight / 2;
+	              break;
+	            case 'bottom':
+	              _this2.left = trigger.offsetLeft - popover.offsetWidth / 2 + trigger.offsetWidth / 2;
+	              _this2.top = trigger.offsetTop + trigger.offsetHeight;
+	              break;
+	            default:
+	              console.warn('Wrong placement prop');
+	          }
+	          popover.style.top = _this2.top + 'px';
+	          popover.style.left = _this2.left + 'px';
 	        }
-	        popover.style.top = _this2.top + 'px';
-	        popover.style.left = _this2.left + 'px';
 	      });
 	    },
 	    toggle: function toggle(e) {
