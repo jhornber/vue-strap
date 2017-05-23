@@ -206,7 +206,7 @@ export default {
     },
     validate () {
       if (!this.canValidate) { return true }
-      let value = (this.val || '').trim()
+      let value = (this.val || '').toString().trim()
       if (!value) { return !this.required }
       if (this.match !== null) { return this.match === value }
       if (value.length < this.minlength) { return false }
